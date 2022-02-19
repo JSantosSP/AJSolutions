@@ -1,20 +1,20 @@
 <template>
   <div id="header">
     <div class="div1">
-      <div id="logo">
-        <img alt="logo" src="">
+      <div class="logo">
+        <img alt="logo" src="../assets/AJ.png">
       </div>
       <div id="buscador">
         <input type="text" name="navegador">
       </div>
       <div class="option">
-        <label>op1</label>
+        <label>Piezas</label>
       </div>
       <div class="option">
-        <label>op2</label>
+        <label>Diseño 3D</label>
       </div>
       <div class="option">
-        <label>op3</label>
+        <label>Animaciones</label>
       </div>
     </div>
   </div>
@@ -29,15 +29,16 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #header{
-  background: black;
+  background: grey;
   margin: 0%;
   color: white;
 }
 #buscador{
   margin: 20px;
 }
-#logo{
+.logo img{
   margin-left: 0%;
+  width: 40px;
 }
 .div1{
   display: flex;
@@ -46,6 +47,9 @@ export default {
 .option{
   margin: 20px;
 
+}
+template label{
+padding: 100px;
 }
 
 </style>
