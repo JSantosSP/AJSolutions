@@ -50,6 +50,10 @@ export default {
   background: grey;
   margin: 0%;
   color: white;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
 }
 .box input[type=text]{
     width:150px;
@@ -58,10 +62,7 @@ export default {
     border: none;
     outline: none;
     padding-left: 10px;
-}
-      
-
-      
+}    
 .box button{
     background-color: transparent;
     color: #f2f2f2;
@@ -82,6 +83,7 @@ export default {
 }
 .option{
   margin: 2%;
+  display:inline-block;
 
 }
 .cesta{
@@ -111,4 +113,9 @@ width: 30%;
 .icon{
   color: black;
 }
+@media screen and (max-width: 750px) {
+  
+}
+  
+
 </style>
