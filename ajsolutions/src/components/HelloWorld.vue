@@ -42,7 +42,7 @@ export default {
 
 <style scoped>
 .main{
-  padding: 5rem; 
+  padding: 6rem; 
 }
 h3 {
   margin: 40px 0 0;
