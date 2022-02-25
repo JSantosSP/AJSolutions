@@ -61,6 +61,7 @@
   margin: 0%;
   color: white;
   position: fixed;
+  z-index: 6;
   left: 0;
   top: 0;
   width: 100%;
@@ -116,7 +117,6 @@
   font-family:"Arial";
   padding: 4%;
   transition: all 400ms ease;
-  
 }
 .option label{
   cursor: pointer;
