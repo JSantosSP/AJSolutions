@@ -85,9 +85,7 @@ export default {
   margin-top: 120px;
   width: 100%;
 }
-.cLabel{
-  width: max-content;
-}
+
 .box input[type=text]{
     width:150px;
     height: 25px;
@@ -137,6 +135,8 @@ export default {
 }
 .option label{
   cursor: pointer;
+  width: max-content;
+  margin: 10px;
 }
 .option:hover{
    box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
@@ -183,7 +183,5 @@ margin-right: 0%;
 .icon{
   color: #7B1111;
 }
-@media screen and (max-width: 750px) {
-  
-}
+
 </style>
