@@ -6,38 +6,42 @@
           <img alt="logo" src="./assets/AJ.png">
         </div>
       </router-link>
-      <div id="derecha">
-        <router-link to = "/piezas">
-          <div class="option">
-            <label>PIEZAS</label>
-          </div>
-        </router-link>
-        <router-link to = "/3d">
-          <div class="option">
-            <label>DISEÑO 3D</label>
-          </div>
-        </router-link>
-        <router-link to = "/animaciones">
-          <div class="option">
-            <label>ANIMACIONES</label>
-          </div>
-        </router-link>
-      </div>
-      <div id="izquierda">
-        <div class="box">
-          <form action="#">
-            <input type="text"
-                  placeholder="Search"
-                  name="search">
-          </form>
-          <button>
-                <span class="material-icons icon">
-                  search
-                </span>
-          </button>
+      <div id="derecha" class="container-fluid">
+        <div class="row">
+          <router-link to = "/piezas">
+            <div class="option col-md-12 col-sm-12 col-xs-12">
+              <label class="cLabel">PIEZAS</label>
+            </div>
+          </router-link>
+          <router-link to = "/3d">
+            <div class="option col-md-12 col-sm-12 col-xs-12">
+              <label class="cLabel">DISEÑO 3D</label>
+            </div>
+          </router-link>
+          <router-link to = "/animaciones">
+            <div class="option col-md-12 col-sm-12 col-xs-12">
+              <label class="cLabel">ANIMACIONES</label>
+            </div>
+          </router-link>
         </div>
-        <div class="cesta">
-          <span class="material-icons icon"> shopping_cart </span>
+      </div>
+      <div id="izquierda" class="container-fluid">
+        <div class="row">
+          <div class="box col-lg-10 col-md-12 col-sm-12 col-xs-12">
+            <form action="#">
+              <input type="text"
+                    placeholder="Search"
+                    name="search">
+            </form>
+            <button>
+                  <span class="material-icons icon">
+                    search
+                  </span>
+            </button>
+          </div>
+          <div class="cesta col-lg-2 col-md-12 col-sm-12 col-xs-12">
+            <span class="material-icons icon"> shopping_cart </span>
+          </div>
         </div>
       </div>
     </div>
@@ -46,6 +50,16 @@
     <router-view/>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'App',
+  data(){
+    return{
+    }
+  },
+}
+</script>
 
 
 <style>
@@ -69,6 +83,9 @@
 #contenedor {
   margin-top: 120px;
   width: 100%;
+}
+.cLabel{
+  width: max-content;
 }
 .box input[type=text]{
     width:150px;
@@ -114,7 +131,7 @@
   color: #7B1111;
   font-weight: bolder;
   font-family:"Arial";
-  padding: 4%;
+  width: 110%;
   transition: all 400ms ease;
   
 }
