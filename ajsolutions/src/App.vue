@@ -75,6 +75,7 @@ export default {
   margin: 0%;
   color: white;
   position: fixed;
+  z-index: 6;
   left: 0;
   top: 0;
   width: 100%;
@@ -133,7 +134,6 @@ export default {
   font-family:"Arial";
   width: 110%;
   transition: all 400ms ease;
-  
 }
 .option label{
   cursor: pointer;
