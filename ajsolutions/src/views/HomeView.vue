@@ -1,37 +1,43 @@
 <template>
   <div id="general">
     <div class="container">
-      <div class="foto">
-        <img alt="piezas" src="../assets/Piezas.png">
-      </div>
-      <div class="titulo"> 
-        <p>PIEZAS</p>
-      </div>
-      <div class="texto">
-          <p>Accede a una amplia gama de piezas diseñadas para la impresión 3D.</p>
-      </div>
-    </div>
-    <div class="container">
-      <div class="foto">
-        <img alt="3D" src="../assets/Diseno_3D.png">
-      </div>
-      <div class="titulo"> 
-        <p>DISEÑO 3D</p>
-      </div>
-      <div class="texto">
-          <p>Envíanos una pieza y consigue el croquis de esta con el archivo para imprimirlo en tu maquina 3D.</p>
-      </div>
-    </div>
-      <div class="container">
+      <router-link to = "/piezas">
         <div class="foto">
-          <img alt="3D" src="../assets/Animaciones.png">
+          <img alt="piezas" src="../assets/Piezas.png">
         </div>
         <div class="titulo"> 
-          <p>ANIMACIONES</p>
+          <p>PIEZAS</p>
         </div>
         <div class="texto">
-          <p>Envíanos una idea de un mecanismo y consigue tu animación personalizada.</p>
+            <p>Accede a una amplia gama de piezas diseñadas para la impresión 3D.</p>
         </div>
+      </router-link>
+    </div>
+    <div class="container">
+      <router-link to = "/3d">  
+        <div class="foto">
+          <img alt="3D" src="../assets/Diseno_3D.png">
+        </div>
+        <div class="titulo"> 
+          <p>DISEÑO 3D</p>
+        </div>
+        <div class="texto">
+            <p>Envíanos una pieza y consigue el croquis de esta con el archivo para imprimirlo en tu maquina 3D.</p>
+        </div>
+      </router-link>
+    </div>
+      <div class="container">
+        <router-link to = "/animaciones">
+          <div class="foto">
+            <img alt="3D" src="../assets/Animaciones.png">
+          </div>
+          <div class="titulo"> 
+            <p>ANIMACIONES</p>
+          </div>
+          <div class="texto">
+            <p>Envíanos una idea de un mecanismo y consigue tu animación personalizada.</p>
+          </div>
+        </router-link>
       </div>
     </div>
 </template>
@@ -44,6 +50,9 @@ export default {
 
 
 <style scoped>
+a{
+  text-decoration: none;
+}
 #general{
   width: 100%;
   height: 60%;
@@ -62,7 +71,6 @@ export default {
 }
 #general .container{
   width: 30%;
-  height: 80px%;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   margin: 1%;
