@@ -2,13 +2,15 @@
   <div class="main">
     <div class="cont">
       <div id="anima">
-        <h1>Lorem Ipsum</h1>
+        <video autoplay loop> 
+        <source src="../assets/Animacion.mp4" type="video/mp4"> 
+        </video>
       </div>
       <div id="texto">
-        <pre>
-            "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
-          "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
-        </pre>
+        <h1 class="titulo">ANIMACIONES</h1>
+        <p class="par">Este servicio enfocado al ámbito industrial y de ingeniería, te permitirá enviar una idea de mecanismo en cualquier tipo de formato, para que nosotros podamos realizar una animación de este, que se devolverá en formato .mp4. 
+          <br><br>Ejemplo de mecanismo: Pistón de un motor, una serie de engranajes, estructuras articulables…
+        </p>
       </div>
       <div id="correo">
         <form action="futuro_php.php" method="post" enctype="multipart/form-data">
@@ -39,15 +41,27 @@ export default {
 
 
 <style scoped>
+.titulo {
+  font-weight: bolder;
+}
+.par {
+  font-size: 20px;
+}
 .main{
   padding: 1%;
 }
 .cont{
 }
-#anima{
+#anima video{
+  background: transparent;
+  width: 70%;
+  
 }
 #texto{
   margin: 0 5% 0 5%;
+  text-align: justify;
+  font-family: 'Fredoka';
+  margin-bottom: 40px;
 }
 #correo{
 }
@@ -55,16 +69,16 @@ export default {
 }
 .contenedor{
   display: flex;
-  justify-content: center;
+  justify-content: left;
 }
 #desc{
-  margin-left: 15%;
+  margin-left: 5%;
   width: 40%;
   height: 150px;
 }
 #desc textarea{
-  height: 95%;
-  width: 95%;
+  height: 100%;
+  width: 100%;
   outline: none;
   resize: none;
   box-shadow: 0px 0px 11px rgba(102,16,15,.64);
@@ -73,6 +87,9 @@ export default {
   box-shadow: 0px 0px 21px rgba(102,16,15,.64);
 }
 
+.arch {
+  margin-left: 5%;
+}
 .arch input[type = file]{
   top: 0;
   left: 0;
