@@ -85,29 +85,38 @@ export default {
   margin-top: 120px;
   width: 100%;
 }
+.box{
+  display:flex;
+  align-items: center;
+  background: white;
+  border-radius: 25px;
+  height: 29px;
+  width: 200px;
+}
 
 .box input[type=text]{
-    width:150px;
+    width: 127px;
     height: 25px;
     border-radius:25px;
     border: none;
     outline: none;
-    padding-left: 10px;
+    margin-right: 10px;
 }    
 .box button{
     background-color: transparent;
     color: #f2f2f2;
-    padding-left: 5px;
+    margin-left: 0px;
+    padding-right: 0px;
     padding-top: 4px;
     font-size: 12px;
     border: none;
-    cursor: pointer;
     transition: all 400ms ease;
 }
 
 .box button .icon:hover{
    transform: translate(-3%);
    color:#B91919;
+   cursor: pointer;
 }
 .logo img{
   margin-left: 45%;
@@ -146,15 +155,15 @@ export default {
 
 .cesta{
   align-items: center;
-  padding-left:0%;
+  padding-left: 7%;
   padding-right:0%;
   padding-top: 4px;
-  cursor: pointer;
   transition: all 400ms ease;
 }
 .cesta .icon:hover{
    transform: translate(-3%);
    color:#B91919;
+   cursor: pointer;
 }
 #derecha{
 display: flex;
@@ -171,14 +180,6 @@ align-items: center;
 width: 30%;
 margin-left: 15%;
 margin-right: 0%;
-}
-.box{
-  display:flex;
-  align-items: center;
-  background: white;
-  border-radius: 25px;
-  height: 29px;
-  width: 200px;
 }
 .icon{
   color: #7B1111;

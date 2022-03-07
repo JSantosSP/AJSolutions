@@ -53,7 +53,7 @@ export default {
 .cont{
 }
 #anima video{
-  background: transparent;
+  border: none;
   width: 70%;
   
 }
