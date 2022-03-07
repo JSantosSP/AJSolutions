@@ -13,14 +13,16 @@
         </p>
       </div>
       <div id="correo">
-        <form action="futuro_php.php" method="post" enctype="multipart/form-data">
+        <form action="AnimacionesView.js" method="post" enctype="multipart/form-data">
           <div class="ventana">
             <div class = "contenedor">
               <div id="desc">
                 <textarea name="Desc" placeholder="Descripcion"/>
               </div>
               <div class="arch">
-                <input type="file" name="archivo" accept=".pdf" required/>
+                <h1>Arrastra tu archivo</h1>
+                <button>Selecciona tus archivos</button>
+                <input type="file" name="archivo" id="imput-file" accept=".pdf" hidden>
               </div>
             </div>
             <div id="btn_env">
@@ -39,7 +41,6 @@ export default {
 }
 </script>
 
-
 <style scoped>
 .titulo {
   font-weight: bolder;
@@ -53,7 +54,6 @@ export default {
 .cont{
 }
 #anima video{
-  border: none;
   width: 70%;
   
 }
@@ -89,12 +89,40 @@ export default {
 
 .arch {
   margin-left: 5%;
+  border: 5px dashed #273e4e;
+  width: 40%;
+  height: 150px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .arch input[type = file]{
   top: 0;
   left: 0;
   text-align: right;
   background: none repeat scroll 0 0 transparent;
+}
+.arch.active{
+  background-color: #b8d4fe;
+  color: black;
+  border: 2px dashed #618ac9;
+}
+.arch h1{
+  font-weight: bolder;
+  font-family: 'Fredoka';
+  font-size: 30px;
+}
+.arch button{
+  padding: 10px 25px;
+  font-size: 15px;
+  border: 0;
+  outline: none;
+  background-color: #4A7491;
+  color: white;
+  border-radius: 8px;
+  margin-top: 5px;
 }
 
 #btn_env{
