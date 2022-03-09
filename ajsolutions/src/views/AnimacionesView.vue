@@ -13,23 +13,23 @@
         </p>
       </div>
       <div id="correo">
-        <form action="AnimacionesView.js" method="post" enctype="multipart/form-data">
+        <!--<form action="Futuro_PHP.php" method="post" enctype="multipart/form-data">-->
           <div class="ventana">
             <div class = "contenedor">
               <div id="desc">
                 <textarea name="Desc" placeholder="Descripcion"/>
               </div>
-              <div class="arch">
-                <h1>Arrastra tu archivo</h1>
-                <button>Selecciona tus archivos</button>
-                <input type="file" name="archivo" id="imput-file" accept=".pdf" hidden>
+              <div @dragover="dragOver()" @dragleave="dragLeave($event)" @drop="dropPDF()" class="arch" id="arch">
+                <h1 id="dragText">Arrastra tu archivo</h1>
+                <button @click="clickPDF()">Selecciona tus archivos</button>
+                <input type="file" name="archivo" id="inputFile" accept=".pdf" @change="inputChange($event.target.value)" hidden>
               </div>
             </div>
             <div id="btn_env">
-              <input type="submit"/>
+              <input type="submit" id="save"/>
             </div>
           </div>
-        </form>
+        <!--</form>-->
       </div>
     </div>
   </div>
@@ -38,6 +38,57 @@
 <script>
 export default {
   name: 'AnimacionesView',
+  data() {
+    return {
+    }
+  },
+  methods: {
+    dorpPDF() {
+      const dropArea = document.getElementById("arch");
+      const dragText = document.getElementById("dragText");
+      dropArea.classList.remove("active");
+      dragText.textContent = "Arrastra tu archivo";
+    },
+    dragOver(){
+      
+      const dropArea = document.getElementById("arch");
+      const dragText = document.getElementById("dragText");
+      dropArea.classList.add("active");
+      dragText.textContent = "Sulta para subir los archivos";
+    },
+    dragLeave(event){
+      console.log(event);
+      const dropArea = document.getElementById("arch");
+      const dragText = document.getElementById("dragText");
+      dropArea.classList.remove("active");
+      dragText.textContent = "Arrastra tu archivo";
+    },   
+    clickPDF() {
+      const input = document.getElementById("inputFile");
+      input.click();
+    },
+    showFile(files){
+      if(files == undefined) {
+        this.processFile(files);
+      }else {
+        this.processFile(files);
+      }
+    },
+    processFile(file){
+      const docType = file.type;
+      const validExtensions = ['image/png', 'image/jpg', 'application/pdf'];
+      if(!validExtensions.includes(docType)){
+        alert("Solo png/jpg/pdf"); 
+      }
+    },
+    inputChange(event){
+        console.log(event);
+        const dropArea = document.getElementById("arch");
+        dropArea.classList.add("active");
+        this.showFile(event);
+        dropArea.classList.remove("active");
+    },
+  }
 }
 </script>
 
