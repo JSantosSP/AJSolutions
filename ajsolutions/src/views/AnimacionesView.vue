@@ -21,7 +21,7 @@
               </div>
               <div @dragover.prevent="dragOver()" @dragleave.prevent="dragLeave()" @drop.prevent="dropPDF($event)" class="arch" id="arch">
                 <h1 v-show="visible" id="dragText">Arrastra tu archivo</h1>
-                <div  v-for="(file,index) in files" :key="index">
+                <div class="ic" v-for="(file,index) in files" :key="index">
                   <img src="../assets/PDF.png" v-if="file.type == 'application/pdf'">
                   <img src="../assets/PNG.png" v-else>
                   <span v-for="(letra, id) in file.name" :key="id"><span v-show="id < 5">{{letra}}</span></span>
@@ -123,9 +123,14 @@ export default {
 }
 #anima video{
   width: 70%;
-  
 }
 
+.ic img{
+  display: flex;
+  width: 60px;
+  flex-direction:column;
+  font-family: 'Fredoka';
+}
 #texto{
   margin: 0 5% 0 5%;
   text-align: justify;
