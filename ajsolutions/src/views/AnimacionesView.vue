@@ -25,7 +25,7 @@
                   <img src="../assets/PDF.png" v-if="file.type == 'application/pdf'">
                   <img src="../assets/PNG.png" v-else>
                   <span v-for="(letra, id) in file.name" :key="id"><span v-show="id < 5">{{letra}}</span></span>
-                  ...<span class="material-icons">delete_outline</span>
+                  ...<span class="material-icons" @click="deleteFile(index)">delete_outline</span>
                 </div>
                 <button @click="clickPDF()">Selecciona tus archivos</button>
                 <input type="file" name="archivo" id="inputFile" @change="inputChange($event)" hidden multiple>
@@ -86,10 +86,7 @@ export default {
           }
         }
       }
-      if(ok){
-        alert("Aceptado"); 
-      }
-      else{
+      if(!ok){
         alert("Solo png/jpg/pdf");
         const input = document.getElementById("inputFile");
         input.value = "";
@@ -111,6 +108,20 @@ export default {
       this.files = document.getElementById("inputFile").files;
       this.visible = false;
     },
+    deleteFile(id){
+      this.files = this.borrar(this.files,id);
+      if(this.files.length == 0){
+        this.visible = true;
+      }
+    },
+    borrar(lista,id){
+      var aux = new Array();
+      for(var i = 0; i < lista.length; ++i){
+        aux.push(lista[i]);
+      }
+      aux.splice(id,1);
+      return aux;
+    }
   }
 }
 </script>
