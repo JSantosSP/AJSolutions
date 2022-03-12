@@ -19,10 +19,16 @@
               <div id="desc">
                 <textarea name="Desc" placeholder="Descripcion"/>
               </div>
-              <div @dragover="dragOver()" @dragleave="dragLeave($event)" @drop="dropPDF()" class="arch" id="arch">
-                <h1 id="dragText">Arrastra tu archivo</h1>
+              <div @dragover.prevent="dragOver()" @dragleave.prevent="dragLeave()" @drop.prevent="dropPDF($event)" class="arch" id="arch">
+                <h1 v-show="visible" id="dragText">Arrastra tu archivo</h1>
+                <div  v-for="(file,index) in files" :key="index">
+                  <img src="../assets/PDF.png" v-if="file.type == 'application/pdf'">
+                  <img src="../assets/PNG.png" v-else>
+                  <span v-for="(letra, id) in file.name" :key="id"><span v-show="id < 5">{{letra}}</span></span>
+                  ...<span class="material-icons">delete_outline</span>
+                </div>
                 <button @click="clickPDF()">Selecciona tus archivos</button>
-                <input type="file" name="archivo" id="inputFile" accept=".pdf" @change="inputChange($event.target.value)" hidden>
+                <input type="file" name="archivo" id="inputFile" @change="inputChange($event)" hidden multiple>
               </div>
             </div>
             <div id="btn_env">
@@ -40,65 +46,76 @@ export default {
   name: 'AnimacionesView',
   data() {
     return {
+      files: [],
+      visible: true,
     }
   },
   methods: {
-    dorpPDF() {
-      const dropArea = document.getElementById("arch");
-      const dragText = document.getElementById("dragText");
-      dropArea.classList.remove("active");
-      dragText.textContent = "Arrastra tu archivo";
-    },
     dragOver(){
-      
       const dropArea = document.getElementById("arch");
       const dragText = document.getElementById("dragText");
       dropArea.classList.add("active");
       dragText.textContent = "Sulta para subir los archivos";
     },
-    dragLeave(event){
-      console.log(event);
+    dragLeave(){
       const dropArea = document.getElementById("arch");
       const dragText = document.getElementById("dragText");
       dropArea.classList.remove("active");
       dragText.textContent = "Arrastra tu archivo";
     },   
+    dropPDF(event) {
+      var archivo = event.dataTransfer.files;
+      console.log(archivo);
+      const dropArea = document.getElementById("arch");
+      const dragText = document.getElementById("dragText");
+      dropArea.classList.remove("active");
+      dragText.textContent = "Arrastra tu archivo";
+    },
     clickPDF() {
       const input = document.getElementById("inputFile");
       input.click();
     },
-    showFile(files){
-      if(files == undefined) {
-        this.processFile(files);
-      }else {
-        this.processFile(files);
+    showFiles(){
+      var files = document.getElementById("inputFile").files;
+      var ok = true;
+      if(files.length != undefined){
+        for(const file of files){
+          ok = this.processFile(file);
+          if(!ok){
+            break;
+          }
+        }
+      }
+      if(ok){
+        alert("Aceptado"); 
+      }
+      else{
+        alert("Solo png/jpg/pdf");
+        const input = document.getElementById("inputFile");
+        input.value = "";
       }
     },
     processFile(file){
       const docType = file.type;
-      const validExtensions = ['image/png', 'image/jpg', 'application/pdf'];
-      if(!validExtensions.includes(docType)){
-        alert("Solo png/jpg/pdf"); 
+      const validExtensons = ['image/png', 'image/jpg','image/jpeg', 'application/pdf']
+      if(!validExtensons.includes(docType)){
+        return false;
       }
+      return true;
     },
-    inputChange(event){
-        console.log(event);
-        const dropArea = document.getElementById("arch");
-        dropArea.classList.add("active");
-        this.showFile(event);
-        dropArea.classList.remove("active");
+    inputChange(){
+      const dropArea = document.getElementById("arch");
+      dropArea.classList.add("active");
+      this.showFiles();
+      dropArea.classList.remove("active");
+      this.files = document.getElementById("inputFile").files;
+      this.visible = false;
     },
   }
 }
 </script>
 
 <style scoped>
-.titulo {
-  font-weight: bolder;
-}
-.par {
-  font-size: 20px;
-}
 .main{
   padding: 1%;
 }
@@ -108,16 +125,23 @@ export default {
   width: 70%;
   
 }
+
 #texto{
   margin: 0 5% 0 5%;
   text-align: justify;
   font-family: 'Fredoka';
   margin-bottom: 40px;
 }
+.titulo {
+  font-weight: bolder;
+}
+.par {
+  font-size: 20px;
+}
 #correo{
 }
 .ventana{
-}
+} 
 .contenedor{
   display: flex;
   justify-content: left;
