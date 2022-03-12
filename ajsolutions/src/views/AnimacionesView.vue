@@ -172,7 +172,7 @@ export default {
 #desc{
   margin-left: 5%;
   width: 40%;
-  height: 150px;
+  height: 180px;
 }
 #desc textarea{
   height: 100%;
@@ -189,7 +189,7 @@ export default {
   margin-left: 5%;
   border: 5px dashed #273e4e;
   width: 40%;
-  height: 150px;
+  height: 180px;
   border-radius: 5px;
   display: flex;
   justify-content: center;
