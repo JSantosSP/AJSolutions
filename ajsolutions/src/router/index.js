@@ -12,6 +12,11 @@ const routes = [
         component: () => import('../views/PiezasView.vue')
     },
     {
+        path: '/piezas/view/:nombre',
+        name: 'viewPieza',
+        component: () => import('../views/ViewPieza.vue')
+    },
+    {
         path: '/3d',
         name: '3dView',
         component: () => import('../views/3DView.vue')
