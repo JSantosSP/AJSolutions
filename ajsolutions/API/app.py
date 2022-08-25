@@ -19,28 +19,32 @@ def getTodo(todo_id):
     return jsonify(data=item), 200
 
 
-@app.route('/api/todo', methods=['GET'])
-def getTodos():
-    _todos = db.todo.find()
+@app.route('/api/crearp', methods=['GET'])
+def getP():
+    _todos = db.piezas.find()
     item = {}
     data = []
-    for todo in _todos:
+    for d in _todos:
         item = {
-            'id': str(todo['_id']),
-            'todo': todo['todo']
+            'id': str(d['_id']),
+            'nombre': d['nombre'],
+            'precio': d['precio'],
+            'desc': d['desc']
         }
         data.append(item)
 
     return jsonify(data=data), 200
 
 
-@app.route('/api/todo', methods=['POST'])
+@app.route('/api/crearp', methods=['POST'])
 def createTodo():
     data = request.get_json(force=True)
     item = {
-        'todo': data['todo']
+        'nombre': data['nombre'],
+        'precio': data['precio'],
+        'desc': data['desc']
     }
-    db.todo.insert_one(item)
+    db.piezas.insert_one(item)
 
     return jsonify(data=data), 201
 
