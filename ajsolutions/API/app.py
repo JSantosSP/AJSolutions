@@ -35,6 +35,24 @@ def getP():
 
     return jsonify(data=data), 200
 
+@app.route('/api/crearu', methods=['GET'])
+def getU():
+    _todos = db.user.find()
+    item = {}
+    data = []
+    for d in _todos:
+        item = {
+            'id': str(d['_id']),
+            'nombre': d['nombre'],
+            'apell': d['apell'],
+            'tel': d['tel'],
+            'mail': d['mail'],
+            'direc': d['direc']
+        }
+        data.append(item)
+
+    return jsonify(data=data), 200
+
 
 @app.route('/api/crearp', methods=['POST'])
 def createTodo():
@@ -48,9 +66,22 @@ def createTodo():
 
     return jsonify(data=data), 201
 
+@app.route('/api/crearu', methods=['POST'])
+def createU():
+    data = request.get_json(force=True)
+    item = {
+        'nombre': data['nombre'],
+        'apell': data['apell'],
+        'tel': data['tel'],
+        'mail': data['mail'],
+        'direc': data['direc']
+    }
+    db.user.insert_one(item)
+
+    return jsonify(data=data), 201
 
 @app.route('/api/todo/<todo_id>', methods=['PATCH'])
-def updateTodo(todo_id):
+def updateP(todo_id):
     data = request.get_json(force=True)
     db.todo.update_one({"_id": ObjectId(todo_id)}, {"$set": data})
 
