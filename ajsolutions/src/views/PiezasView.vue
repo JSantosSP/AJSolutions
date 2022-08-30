@@ -15,6 +15,15 @@
         </div>
       </div>
     </div>
+    <div>
+      <router-link to = "/addPieza">
+        <div class="plus">
+          <div class="foto">
+            <img alt="piezas" src="../assets/plus.png">
+          </div>
+        </div>
+      </router-link>
+    </div> 
   </div>
 </template>
 
@@ -104,6 +113,9 @@ a{
 #general .container:hover{
   transform: translateY(-15px);
   box-shadow: 0 10px 14px rgba(0, 0, 0, 0.2);
+}
+.plus{
+  margin-top: 8%;
 }
 .foto img{
  width: 30%;
