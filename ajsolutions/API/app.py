@@ -88,9 +88,9 @@ def updateP(todo_id):
     return jsonify(data=data), 204
 
 
-@app.route('/api/todo/<todo_id>', methods=['DELETE'])
-def deleteTodo(todo_id):
-    db.todo.delete_one({"_id": ObjectId(todo_id)})
+@app.route('/api/deletep/<deletep_id>', methods=['DELETE'])
+def deleteTodo(deletep_id):
+    db.piezas.delete_one({"_id": ObjectId(deletep_id)})
 
     return jsonify(), 204
 
