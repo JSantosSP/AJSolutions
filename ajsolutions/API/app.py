@@ -20,6 +20,19 @@ def getPp(crearp_id):
 
     return jsonify(data=item), 200
 
+@app.route('/api/crearu/<crearu_id>', methods=['GET'])
+def getUu(crearu_id):
+    d = db.user.find_one({"_id": ObjectId(crearu_id)})
+    item = {
+         'id': str(d['_id']),
+            'nombre': d['nombre'],
+            'apell': d['apell'],
+            'tel': d['tel'],
+            'mail': d['mail'],
+            'direc': d['direc']
+    }
+
+    return jsonify(data=item), 200
 
 @app.route('/api/crearp', methods=['GET'])
 def getP():
