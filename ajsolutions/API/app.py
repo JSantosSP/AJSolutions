@@ -8,12 +8,14 @@ mongo = PyMongo(app)
 db = mongo.db
 
 
-@app.route('/api/todo/<todo_id>', methods=['GET'])
-def getTodo(todo_id):
-    _todo = db.todo.find_one({"_id": ObjectId(todo_id)})
+@app.route('/api/crearp/<crearp_id>', methods=['GET'])
+def getPp(crearp_id):
+    d = db.piezas.find_one({"_id": ObjectId(crearp_id)})
     item = {
-        'id': str(_todo['_id']),
-        'todo': _todo['todo']
+        'id': str(d['_id']),
+            'nombre': d['nombre'],
+            'precio': d['precio'],
+            'desc': d['desc']
     }
 
     return jsonify(data=item), 200
