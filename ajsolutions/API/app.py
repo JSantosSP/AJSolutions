@@ -140,13 +140,26 @@ def createPd():
 
     return jsonify(data=data), 201
 
-@app.route('/api/todo/<todo_id>', methods=['PATCH'])
-def updateP(todo_id):
+@app.route('/api/crearp/<crearp_id>', methods=['PATCH'])
+def updateP(crearp_id):
     data = request.get_json(force=True)
-    db.todo.update_one({"_id": ObjectId(todo_id)}, {"$set": data})
+    db.piezas.update_one({"_id": ObjectId(crearp_id)}, {"$set": data})
 
     return jsonify(data=data), 204
 
+@app.route('/api/crearu/<crearu_id>', methods=['PATCH'])
+def updateU(crearu_id):
+    data = request.get_json(force=True)
+    db.user.update_one({"_id": ObjectId(crearu_id)}, {"$set": data})
+
+    return jsonify(data=data), 204
+
+@app.route('/api/crearpd/<crearpd_id>', methods=['PATCH'])
+def updatePd(crearpd_id):
+    data = request.get_json(force=True)
+    db.pedido.update_one({"_id": ObjectId(crearpd_id)}, {"$set": data})
+
+    return jsonify(data=data), 204
 
 @app.route('/api/deletep/<deletep_id>', methods=['DELETE'])
 def deleteP(deletep_id):
