@@ -34,6 +34,20 @@ def getUu(crearu_id):
 
     return jsonify(data=item), 200
 
+@app.route('/api/crearpd/<crearpd_id>', methods=['GET'])
+def getPd(crearpd_id):
+    d = db.pedido.find_one({"_id": ObjectId(crearpd_id)})
+    item = {
+        'id': str(d['_id']),
+        'id_pz': d['id_pz'],
+        'id_us': d['id_us'],
+        'unid': d['unid'],
+        'mat': d['mat'],
+        'tp_imp': d['tp_imp']
+    }
+
+    return jsonify(data=item), 200
+
 @app.route('/api/crearp', methods=['GET'])
 def getP():
     _todos = db.piezas.find()
@@ -68,6 +82,23 @@ def getU():
 
     return jsonify(data=data), 200
 
+@app.route('/api/crearpd', methods=['GET'])
+def getPdu():
+    _todos = db.pedido.find()
+    item = {}
+    data = []
+    for d in _todos:
+        item = {
+            'id': str(d['_id']),
+            'id_pz': d['id_pz'],
+            'id_us': d['id_us'],
+            'unid': d['unid'],
+            'mat': d['mat'],
+            'tp_imp': d['tp_imp']
+        }
+        data.append(item)
+
+    return jsonify(data=data), 200
 
 @app.route('/api/crearp', methods=['POST'])
 def createTodo():
@@ -95,6 +126,20 @@ def createU():
 
     return jsonify(data=data), 201
 
+@app.route('/api/crearpd', methods=['POST'])
+def createPd():
+    data = request.get_json(force=True)
+    item = {
+        'id_pz': data['id_pz'],
+        'id_us': data['id_us'],
+        'unid': data['unid'],
+        'mat': data['mat'],
+        'tp_imp': data['tp_imp']
+    }
+    db.pedido.insert_one(item)
+
+    return jsonify(data=data), 201
+
 @app.route('/api/todo/<todo_id>', methods=['PATCH'])
 def updateP(todo_id):
     data = request.get_json(force=True)
@@ -112,6 +157,12 @@ def deleteP(deletep_id):
 @app.route('/api/deleteu/<deleteu_id>', methods=['DELETE'])
 def deleteU(deleteu_id):
     db.user.delete_one({"_id": ObjectId(deleteu_id)})
+
+    return jsonify(), 204
+
+@app.route('/api/deletepd/<deletepd_id>', methods=['DELETE'])
+def deletePd(deletepd_id):
+    db.pedido.delete_one({"_id": ObjectId(deletepd_id)})
 
     return jsonify(), 204
 
