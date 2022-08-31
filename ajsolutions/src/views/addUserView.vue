@@ -164,6 +164,7 @@ export default {
   box-shadow: 0px 10px 14px -7px rgba(102, 16, 15, 1);
   text-shadow: 0px 1px 0px rgba(102, 16, 15, 1);
   background:linear-gradient(rgba(20, 21, 22, 1), rgba(102, 16, 15, 1));
+  text-decoration: none;
   }
 
 #btn_env a:hover {

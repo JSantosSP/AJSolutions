@@ -18,7 +18,7 @@
     <div>
       <router-link to = "/introducir_pieza">
         <div class="plus">
-          <div class="foto">
+          <div class="fot">
             <img alt="piezas" src="../assets/plus.png">
           </div>
         </div>
@@ -116,10 +116,27 @@ a{
 }
 .plus{
   margin-top: 8%;
+
 }
 .foto img{
  width: 30%;
  height: 30%;
+}
+.fot img{
+ width: 30%;
+ height: 30%;
+ box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+ overflow: hidden;
+ margin: 1%;
+ text-align: center;
+ transition: all 0.25s;
+ cursor: pointer;
+ align-items: center;
+ border-radius: 76px;
+}
+.fot img:hover{
+  transform: translateY(-15px);
+  box-shadow: 0 10px 14px rgba(0, 0, 0, 0.2);
 }
 .pie_foto{
   display: flex;
