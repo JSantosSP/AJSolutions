@@ -44,9 +44,11 @@
           </div>
         </div>
       </div>
-      <div class="user">
+      <router-link to = "/user">
+        <div class="user">
             <span class="material-symbols-outlined icon"> account_circle</span>
-      </div>
+        </div>
+      </router-link>
     </div>
   </div>
   <div id="contenedor">
@@ -170,16 +172,18 @@ export default {
 }
 .user{
   align-items: center;
-  padding-top: 12px;
+  padding-top: 16px;
   transition: all 400ms ease;
-  font-size: 60px;
-  margin-left: 6%;
+  margin-left: -25%;
   margin-right: 1%;
 }
 .user .icon:hover{
    transform: translate(-3%);
    color:#B91919;
    cursor: pointer;
+}
+.user span{
+  font-size: 60px;
 }
 #derecha{
 display: flex;
@@ -195,7 +199,7 @@ justify-content: space-around;
 align-items: center;
 width: 30%;
 margin-left: 10%;
-margin-right: -10%;
+margin-right: 0%;
 }
 .icon{
   color: #7B1111;

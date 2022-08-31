@@ -27,9 +27,14 @@ const routes = [
         component: () => import('../views/AnimacionesView.vue')
     },
     {
-        path: '/addPieza',
+        path: '/introducir_pieza',
         name: 'addCrearView',
         component: () => import('../views/addCrearView.vue')
+    },
+    {
+        path: '/user',
+        name: 'addUserView',
+        component: () => import('../views/addUserView.vue')
     }
   ]
   

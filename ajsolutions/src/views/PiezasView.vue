@@ -16,7 +16,7 @@
       </div>
     </div>
     <div>
-      <router-link to = "/addPieza">
+      <router-link to = "/introducir_pieza">
         <div class="plus">
           <div class="foto">
             <img alt="piezas" src="../assets/plus.png">
