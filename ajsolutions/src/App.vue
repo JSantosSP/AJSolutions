@@ -44,6 +44,9 @@
           </div>
         </div>
       </div>
+      <div class="user">
+            <span class="material-symbols-outlined icon"> account_circle</span>
+      </div>
     </div>
   </div>
   <div id="contenedor">
@@ -165,12 +168,25 @@ export default {
    color:#B91919;
    cursor: pointer;
 }
+.user{
+  align-items: center;
+  padding-top: 12px;
+  transition: all 400ms ease;
+  font-size: 60px;
+  margin-left: 6%;
+  margin-right: 1%;
+}
+.user .icon:hover{
+   transform: translate(-3%);
+   color:#B91919;
+   cursor: pointer;
+}
 #derecha{
 display: flex;
 justify-content: space-around;
 align-items: center;
 width:45%;
-margin-right: 20%;
+margin-right: 10%;
 margin-left: 3%;
 }
 #izquierda{
@@ -178,8 +194,8 @@ display: flex;
 justify-content: space-around;
 align-items: center;
 width: 30%;
-margin-left: 15%;
-margin-right: 0%;
+margin-left: 10%;
+margin-right: -10%;
 }
 .icon{
   color: #7B1111;

@@ -25,6 +25,11 @@ const routes = [
         path: '/animaciones',
         name: 'animacionesView',
         component: () => import('../views/AnimacionesView.vue')
+    },
+    {
+        path: '/addPieza',
+        name: 'addCrearView',
+        component: () => import('../views/addCrearView.vue')
     }
   ]
   
