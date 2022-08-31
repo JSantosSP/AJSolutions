@@ -29,7 +29,10 @@ def getUu(crearu_id):
             'apell': d['apell'],
             'tel': d['tel'],
             'mail': d['mail'],
-            'direc': d['direc']
+            'direc': d['direc'],
+            'cp': d['cp'],
+            'Nu': d['Nu'],
+            'pw': d['pw']
     }
 
     return jsonify(data=item), 200
@@ -76,7 +79,10 @@ def getU():
             'apell': d['apell'],
             'tel': d['tel'],
             'mail': d['mail'],
-            'direc': d['direc']
+            'direc': d['direc'],
+            'cp': d['cp'],
+            'Nu': d['Nu'],
+            'pw': d['pw']
         }
         data.append(item)
 
@@ -120,7 +126,10 @@ def createU():
         'apell': data['apell'],
         'tel': data['tel'],
         'mail': data['mail'],
-        'direc': data['direc']
+        'direc': data['direc'],
+        'cp': data['cp'],
+        'Nu': data['Nu'],
+        'pw': data['pw']
     }
     db.user.insert_one(item)
 
