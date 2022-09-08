@@ -35,6 +35,11 @@ const routes = [
         path: '/user',
         name: 'addUserView',
         component: () => import('../views/addUserView.vue')
+    },
+    {
+        path: '/iniciar_sesion',
+        name: 'addUserView',
+        component: () => import('../views/addIniS.vue')
     }
   ]
   

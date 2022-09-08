@@ -39,9 +39,11 @@
                   </span>
             </button>
           </div>
-          <div class="cesta col-lg-2 col-md-12 col-sm-12 col-xs-12">
-            <span class="material-icons icon"> shopping_cart </span>
-          </div>
+          <router-link to = "/iniciar_sesion">
+            <div class="cesta col-lg-2 col-md-12 col-sm-12 col-xs-12">
+              <span class="material-icons icon"> shopping_cart </span>
+            </div>
+          </router-link>
         </div>
       </div>
       <router-link to = "/user">
@@ -160,7 +162,7 @@ export default {
 
 .cesta{
   align-items: center;
-  padding-left: 7%;
+  padding-left: 75%;
   padding-right:0%;
   padding-top: 4px;
   transition: all 400ms ease;
@@ -175,7 +177,7 @@ export default {
   padding-top: 16px;
   transition: all 400ms ease;
   margin-left: -25%;
-  margin-right: 1%;
+  margin-right: 50%;
 }
 .user .icon:hover{
    transform: translate(-3%);
