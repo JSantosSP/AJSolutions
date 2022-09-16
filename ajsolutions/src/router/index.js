@@ -38,7 +38,7 @@ const routes = [
     },
     {
         path: '/iniciar_sesion',
-        name: 'addUserView',
+        name: 'addIniS',
         component: () => import('../views/addIniS.vue')
     }
   ]

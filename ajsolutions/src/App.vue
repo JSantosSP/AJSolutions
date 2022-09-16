@@ -177,7 +177,7 @@ export default {
   padding-top: 16px;
   transition: all 400ms ease;
   margin-left: -25%;
-  margin-right: 50%;
+  margin-right: 1%;
 }
 .user .icon:hover{
    transform: translate(-3%);
