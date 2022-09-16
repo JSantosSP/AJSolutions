@@ -46,7 +46,7 @@
           </router-link>
         </div>
       </div>
-      <router-link to = "/user">
+      <router-link to = "/iniciar_sesion">
         <div class="user">
             <span class="material-symbols-outlined icon"> account_circle</span>
         </div>

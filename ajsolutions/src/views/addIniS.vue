@@ -26,6 +26,11 @@
     <div id="btn_env">
       <a href="#">Iniciar Sesión</a>
     </div>
+    <div class="reg">
+      <router-link to = "/user" class="us">
+          <h6>Registrar</h6>
+      </router-link>
+    </div>
     </div>
   </div>
 </template>
@@ -113,5 +118,11 @@ export default {
 
 #btn_env a:hover {
   background: linear-gradient(rgba(102, 16, 15, 1), rgba(20, 21, 22, 1));
+}
+.reg{
+  margin-top: 20px;
+}
+.us{
+  color: #7B1111;
 }
 </style>
