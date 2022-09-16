@@ -79,7 +79,7 @@
           </div>
         </div>
       </div>
-    <div id="btn_env">
+    <div id="btn_env" @click="registrarUsuario">
       <a href="#">Registrar</a>
     </div>
     </div>
@@ -87,12 +87,39 @@
 </template>
 
 <script>
+import md5 from "blueimp-md5";
 export default {
   name: 'ViewCrear',
   data(){
     return {
       files: new Array(),
       visible: true,
+    }
+  },
+  methods:{
+    async registrarUsuario(){
+      var cont = document.getElementsByName('contraseña')[0].value;
+      var cont2 = document.getElementsByName('repetir_contraseña')[0].value;
+      var pw;
+      var payload;
+      if (cont == cont2)
+      {
+        pw = cont;
+        payload = {
+          nombre: document.getElementsByName('nombre')[0].value,
+          apell: document.getElementsByName('apellidos')[0].value,
+          tel: document.getElementsByName('Telefono')[0].value,
+          mail: document.getElementsByName('correo_electronico')[0].value,
+          direc: document.getElementsByName('direción_postal')[0].value,
+          cp: document.getElementsByName('codigo_postal')[0].value,
+          Nu: document.getElementsByName('nombre_de_usuario')[0].value,
+          pw: md5(pw)
+        }
+      }
+      else {
+        console.log("error");
+      }
+      console.log(payload);
     }
   }
 }
