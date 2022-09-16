@@ -1,13 +1,17 @@
 from flask import Flask, jsonify, request
 from flask_pymongo import PyMongo, ObjectId
 from os import environ
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
+
+CORS(app)
+
 app.config["MONGO_URI"] = environ.get("MONGO_URI")
 mongo = PyMongo(app)
 db = mongo.db
 
-
+@cross_origin
 @app.route('/api/crearp/<crearp_id>', methods=['GET'])
 def getPp(crearp_id):
     d = db.piezas.find_one({"_id": ObjectId(crearp_id)})
