@@ -113,8 +113,13 @@ export default {
           direc: document.getElementsByName('direción_postal')[0].value,
           cp: document.getElementsByName('codigo_postal')[0].value,
           Nu: document.getElementsByName('nombre_de_usuario')[0].value,
-          pw: md5(pw)
+          pw: md5(pw),
+          T: 0
         }
+        await this.axios.post('crearu', payload)
+        .then(response => {
+          console.log(response);
+        })
       }
       else {
         console.log("error");
