@@ -32,7 +32,8 @@ def getUu(crearu_id):
             'direc': d['direc'],
             'cp': d['cp'],
             'Nu': d['Nu'],
-            'pw': d['pw']
+            'pw': d['pw'],
+            'T': d['T']
     }
 
     return jsonify(data=item), 200
@@ -82,7 +83,8 @@ def getU():
             'direc': d['direc'],
             'cp': d['cp'],
             'Nu': d['Nu'],
-            'pw': d['pw']
+            'pw': d['pw'],
+            'T': d['T']
         }
         data.append(item)
 
@@ -129,7 +131,8 @@ def createU():
         'direc': data['direc'],
         'cp': data['cp'],
         'Nu': data['Nu'],
-        'pw': data['pw']
+        'pw': data['pw'],
+        'T': data['T']
     }
     db.user.insert_one(item)
 
